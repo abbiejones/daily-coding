@@ -8,19 +8,20 @@ class Node:
         self.left = left
         self.right = right
 
-#def createTree(size):
-
-
+#O(n)
 def serialize(root):
     if root is None:
         return "#"
 
     return "{} {} {}".format(root.val, serialize(root.left),serialize(root.right))
 
+#O(n)
 def deserialize(root):
     nodes = iter(root.split())
     return helper(nodes)
 
+
+#O(n)
 def helper(nodes):
     node = next(nodes)
     if node == "#":
